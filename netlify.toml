@@ -6,7 +6,7 @@
   publish = "apps/web/.next"
 
 [build.environment]
-  NODE_VERSION = "20"
+  NODE_VERSION = "22.13.0"
   # Corepack activates the pinned pnpm from package.json#packageManager.
   COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
 

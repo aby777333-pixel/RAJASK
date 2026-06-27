@@ -5,7 +5,7 @@
   "description": "RAJASK — The AI CEO Operating System. Sovereign command center for running an entire realm.",
   "packageManager": "pnpm@11.9.0",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.13.0"
   },
   "scripts": {
     "build": "turbo run build",
