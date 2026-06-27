@@ -6,9 +6,15 @@
   publish = "apps/web/.next"
 
 [build.environment]
-  NODE_VERSION = "22.13.0"
+  # Node 22 LTS (latest) — its bundled Corepack can verify pnpm's signing key.
+  # Node 22.13.0 specifically shipped a Corepack that throws
+  # "Cannot find matching keyid" verifying recent pnpm releases.
+  NODE_VERSION = "22"
   # Corepack activates the pinned pnpm from package.json#packageManager.
   COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
+  # Belt-and-suspenders: skip Corepack signature verification regardless of
+  # the bundled key set, so the pnpm download can't fail on keyid mismatch.
+  COREPACK_INTEGRITY_KEYS = "0"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
