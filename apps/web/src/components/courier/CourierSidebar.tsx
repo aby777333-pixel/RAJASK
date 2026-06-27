@@ -50,9 +50,9 @@ export function CourierSidebar({
           </div>
           <div>
             <div className="mb-1 text-[10px] uppercase tracking-wider text-ivory/30">New channel</div>
-            <div className="flex gap-2">
+            <div className="flex items-stretch gap-2">
               <input
-                className="flex-1 rounded-md border border-white/10 bg-obsidian px-2 py-1 text-sm text-ivory outline-none focus:border-gold/50"
+                className="min-w-0 flex-1 rounded-md border border-white/10 bg-obsidian px-2 py-1.5 text-sm text-ivory outline-none focus:border-gold/50"
                 placeholder="channel-name"
                 value={channelName}
                 onChange={(e) => setChannelName(e.target.value)}
@@ -66,7 +66,7 @@ export function CourierSidebar({
                     setShowNew(false);
                   })
                 }
-                className="rounded-md bg-gold px-2 py-1 text-xs font-semibold text-obsidian disabled:opacity-50"
+                className="shrink-0 rounded-md bg-gold px-3 py-1.5 text-xs font-semibold text-obsidian disabled:opacity-50"
               >
                 Create
               </button>
