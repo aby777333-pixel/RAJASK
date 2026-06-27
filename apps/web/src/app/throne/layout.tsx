@@ -3,7 +3,7 @@ import { AppShell } from "@/components/AppShell";
 import { getCourtContext } from "@/lib/court/data";
 
 export default async function ThroneLayout({ children }: { children: React.ReactNode }) {
-  const { user, memberships, activeRealm } = await getCourtContext();
+  const { user, memberships, activeRealm, isSuperAdmin } = await getCourtContext();
   if (!user) redirect("/auth");
 
   return (
@@ -11,6 +11,7 @@ export default async function ThroneLayout({ children }: { children: React.React
       email={user.email ?? ""}
       memberships={memberships}
       activeRealmId={activeRealm?.realmId ?? null}
+      isSuperAdmin={isSuperAdmin}
     >
       {children}
     </AppShell>

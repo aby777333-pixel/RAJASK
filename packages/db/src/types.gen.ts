@@ -618,6 +618,177 @@ export type Database = {
         }
         Relationships: []
       }
+      broadcasts: {
+        Row: {
+          body: string | null
+          channels: string[]
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          id: string
+          realm_id: string
+          scheduled_at: string | null
+          segment: Json
+          sent_at: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          channels?: string[]
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          realm_id: string
+          scheduled_at?: string | null
+          segment?: Json
+          sent_at?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          channels?: string[]
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          realm_id?: string
+          scheduled_at?: string | null
+          segment?: Json
+          sent_at?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      broadcast_receipts: {
+        Row: {
+          broadcast_id: string
+          channel: string
+          delivered_at: string
+          id: string
+          read_at: string | null
+          realm_id: string
+          user_id: string
+        }
+        Insert: {
+          broadcast_id: string
+          channel?: string
+          delivered_at?: string
+          id?: string
+          read_at?: string | null
+          realm_id: string
+          user_id: string
+        }
+        Update: {
+          broadcast_id?: string
+          channel?: string
+          delivered_at?: string
+          id?: string
+          read_at?: string | null
+          realm_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      calendar_events: {
+        Row: {
+          all_day: boolean
+          company_id: string | null
+          created_at: string
+          deleted_at: string | null
+          description: string | null
+          ends_at: string | null
+          id: string
+          kind: string
+          location: string | null
+          metadata: Json
+          owner_user_id: string
+          realm_id: string
+          starts_at: string
+          timezone: string
+          title: string
+          updated_at: string
+          visibility: string
+        }
+        Insert: {
+          all_day?: boolean
+          company_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          kind?: string
+          location?: string | null
+          metadata?: Json
+          owner_user_id: string
+          realm_id: string
+          starts_at: string
+          timezone?: string
+          title: string
+          updated_at?: string
+          visibility?: string
+        }
+        Update: {
+          all_day?: boolean
+          company_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          description?: string | null
+          ends_at?: string | null
+          id?: string
+          kind?: string
+          location?: string | null
+          metadata?: Json
+          owner_user_id?: string
+          realm_id?: string
+          starts_at?: string
+          timezone?: string
+          title?: string
+          updated_at?: string
+          visibility?: string
+        }
+        Relationships: []
+      }
+      event_attendees: {
+        Row: {
+          created_at: string
+          event_id: string
+          id: string
+          realm_id: string
+          response: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_id: string
+          id?: string
+          realm_id: string
+          response?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          event_id?: string
+          id?: string
+          realm_id?: string
+          response?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           avatar_url: string | null
@@ -626,6 +797,7 @@ export type Database = {
           email: string | null
           full_name: string | null
           id: string
+          is_super_admin: boolean
           locale: string
           phone: string | null
           reachability: Json
@@ -639,6 +811,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id: string
+          is_super_admin?: boolean
           locale?: string
           phone?: string | null
           reachability?: Json
@@ -652,6 +825,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id?: string
+          is_super_admin?: boolean
           locale?: string
           phone?: string | null
           reachability?: Json
@@ -697,6 +871,8 @@ export type Database = {
       rajask_in_conversation: { Args: { p_conv: string }; Returns: boolean }
       rajask_is_realm_member: { Args: { p_realm: string }; Returns: boolean }
       rajask_is_sovereign: { Args: { p_realm: string }; Returns: boolean }
+      rajask_is_super_admin: { Args: Record<string, never>; Returns: boolean }
+      rajask_send_broadcast: { Args: { p_broadcast: string }; Returns: number }
       rajask_open_invitation: {
         Args: { p_token: string }
         Returns: {

@@ -1,4 +1,4 @@
-import { Logo, SpectrumBar } from "@rajask/ui";
+import { Logo, SpectrumBar, Badge } from "@rajask/ui";
 import { RegaliaNav } from "./RegaliaNav";
 import { RealmMenu } from "./RealmMenu";
 import type { RealmMembership } from "@/lib/court/data";
@@ -8,11 +8,13 @@ export function AppShell({
   email,
   memberships,
   activeRealmId,
+  isSuperAdmin = false,
   children,
 }: {
   email: string;
   memberships: RealmMembership[];
   activeRealmId: string | null;
+  isSuperAdmin?: boolean;
   children: React.ReactNode;
 }) {
   const active = memberships.find((m) => m.realmId === activeRealmId) ?? null;
@@ -28,7 +30,8 @@ export function AppShell({
               {active ? active.realmName : "CEO Operating System"}
             </div>
           </div>
-          <div className="ml-auto">
+          <div className="ml-auto flex items-center gap-2">
+            {isSuperAdmin && <Badge tone="gold">Super Admin</Badge>}
             <RealmMenu email={email} memberships={memberships} activeRealmId={activeRealmId} />
           </div>
         </div>

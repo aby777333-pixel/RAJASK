@@ -18,6 +18,7 @@ export interface CourtContext {
   user: User | null;
   memberships: RealmMembership[];
   activeRealm: RealmMembership | null;
+  isSuperAdmin: boolean;
 }
 
 /**
@@ -31,7 +32,14 @@ export async function getCourtContext(): Promise<CourtContext> {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) return { user: null, memberships: [], activeRealm: null };
+  if (!user) return { user: null, memberships: [], activeRealm: null, isSuperAdmin: false };
+
+  const { data: profile } = await supabase
+    .from("users")
+    .select("is_super_admin")
+    .eq("id", user.id)
+    .maybeSingle();
+  const isSuperAdmin = profile?.is_super_admin ?? false;
 
   const { data } = await supabase
     .from("memberships")
@@ -60,5 +68,5 @@ export async function getCourtContext(): Promise<CourtContext> {
   const activeRealm =
     memberships.find((m) => m.realmId === cookieRealm) ?? memberships[0] ?? null;
 
-  return { user, memberships, activeRealm };
+  return { user, memberships, activeRealm, isSuperAdmin };
 }
