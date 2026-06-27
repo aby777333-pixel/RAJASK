@@ -789,6 +789,405 @@ export type Database = {
         }
         Relationships: []
       }
+      tasks: {
+        Row: {
+          assignee_user_id: string | null
+          brief: string | null
+          budget_amount: number | string | null
+          budget_currency: string | null
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          due_at: string | null
+          id: string
+          parent_task_id: string | null
+          priority: string
+          realm_id: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          assignee_user_id?: string | null
+          brief?: string | null
+          budget_amount?: number | string | null
+          budget_currency?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          due_at?: string | null
+          id?: string
+          parent_task_id?: string | null
+          priority?: string
+          realm_id: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          assignee_user_id?: string | null
+          brief?: string | null
+          budget_amount?: number | string | null
+          budget_currency?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          due_at?: string | null
+          id?: string
+          parent_task_id?: string | null
+          priority?: string
+          realm_id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      task_comments: {
+        Row: {
+          author_user_id: string | null
+          body: string
+          created_at: string
+          id: string
+          realm_id: string
+          task_id: string
+        }
+        Insert: {
+          author_user_id?: string | null
+          body: string
+          created_at?: string
+          id?: string
+          realm_id: string
+          task_id: string
+        }
+        Update: {
+          author_user_id?: string | null
+          body?: string
+          created_at?: string
+          id?: string
+          realm_id?: string
+          task_id?: string
+        }
+        Relationships: []
+      }
+      approval_requests: {
+        Row: {
+          amount: number | string | null
+          company_id: string | null
+          created_at: string
+          currency: string | null
+          decided_at: string | null
+          decided_by: string | null
+          detail: string | null
+          id: string
+          kind: string
+          realm_id: string
+          reason: string | null
+          requested_by: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          amount?: number | string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string | null
+          decided_at?: string | null
+          decided_by?: string | null
+          detail?: string | null
+          id?: string
+          kind?: string
+          realm_id: string
+          reason?: string | null
+          requested_by?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          amount?: number | string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string | null
+          decided_at?: string | null
+          decided_by?: string | null
+          detail?: string | null
+          id?: string
+          kind?: string
+          realm_id?: string
+          reason?: string | null
+          requested_by?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      meetings: {
+        Row: {
+          agenda: string | null
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          ends_at: string | null
+          id: string
+          location: string | null
+          minutes: string | null
+          realm_id: string
+          recording_url: string | null
+          starts_at: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          agenda?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          ends_at?: string | null
+          id?: string
+          location?: string | null
+          minutes?: string | null
+          realm_id: string
+          recording_url?: string | null
+          starts_at: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          agenda?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          ends_at?: string | null
+          id?: string
+          location?: string | null
+          minutes?: string | null
+          realm_id?: string
+          recording_url?: string | null
+          starts_at?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      meeting_attendees: {
+        Row: {
+          created_at: string
+          id: string
+          meeting_id: string
+          realm_id: string
+          response: string
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          meeting_id: string
+          realm_id: string
+          response?: string
+          role?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          meeting_id?: string
+          realm_id?: string
+          response?: string
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      documents: {
+        Row: {
+          byte_size: number | null
+          category: string
+          company_id: string | null
+          content_type: string | null
+          created_at: string
+          deleted_at: string | null
+          expires_at: string | null
+          id: string
+          owner_user_id: string | null
+          realm_id: string
+          status: string
+          storage_bucket: string | null
+          storage_path: string | null
+          title: string
+          updated_at: string
+          version: number
+        }
+        Insert: {
+          byte_size?: number | null
+          category?: string
+          company_id?: string | null
+          content_type?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          expires_at?: string | null
+          id?: string
+          owner_user_id?: string | null
+          realm_id: string
+          status?: string
+          storage_bucket?: string | null
+          storage_path?: string | null
+          title: string
+          updated_at?: string
+          version?: number
+        }
+        Update: {
+          byte_size?: number | null
+          category?: string
+          company_id?: string | null
+          content_type?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          expires_at?: string | null
+          id?: string
+          owner_user_id?: string | null
+          realm_id?: string
+          status?: string
+          storage_bucket?: string | null
+          storage_path?: string | null
+          title?: string
+          updated_at?: string
+          version?: number
+        }
+        Relationships: []
+      }
+      document_signatures: {
+        Row: {
+          created_at: string
+          document_id: string
+          id: string
+          realm_id: string
+          signature_meta: Json
+          signed_at: string | null
+          signer_user_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          document_id: string
+          id?: string
+          realm_id: string
+          signature_meta?: Json
+          signed_at?: string | null
+          signer_user_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          document_id?: string
+          id?: string
+          realm_id?: string
+          signature_meta?: Json
+          signed_at?: string | null
+          signer_user_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      automation_rules: {
+        Row: {
+          actions: Json
+          company_id: string | null
+          conditions: Json
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          description: string | null
+          enabled: boolean
+          fire_count: number
+          id: string
+          last_fired_at: string | null
+          name: string
+          realm_id: string
+          trigger: Json
+          updated_at: string
+        }
+        Insert: {
+          actions?: Json
+          company_id?: string | null
+          conditions?: Json
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          description?: string | null
+          enabled?: boolean
+          fire_count?: number
+          id?: string
+          last_fired_at?: string | null
+          name: string
+          realm_id: string
+          trigger?: Json
+          updated_at?: string
+        }
+        Update: {
+          actions?: Json
+          company_id?: string | null
+          conditions?: Json
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          description?: string | null
+          enabled?: boolean
+          fire_count?: number
+          id?: string
+          last_fired_at?: string | null
+          name?: string
+          realm_id?: string
+          trigger?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      automation_runs: {
+        Row: {
+          created_at: string
+          detail: Json
+          id: string
+          realm_id: string
+          rule_id: string
+          status: string
+        }
+        Insert: {
+          created_at?: string
+          detail?: Json
+          id?: string
+          realm_id: string
+          rule_id: string
+          status?: string
+        }
+        Update: {
+          created_at?: string
+          detail?: Json
+          id?: string
+          realm_id?: string
+          rule_id?: string
+          status?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           avatar_url: string | null

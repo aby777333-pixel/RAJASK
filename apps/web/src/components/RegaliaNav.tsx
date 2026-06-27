@@ -9,6 +9,11 @@ const ROUTES: Partial<Record<Subsystem, string>> = {
   COURIER: "/throne/courier",
   HERALD: "/throne/herald",
   ALMANAC: "/throne/almanac",
+  WRIT: "/throne/writ",
+  SEAL: "/throne/seal",
+  COUNCIL: "/throne/council",
+  VAULT: "/throne/vault",
+  EDICT: "/throne/edict",
 };
 
 /** Order the Regalia roughly by the spec's phase grouping for the rail. */
