@@ -28,7 +28,29 @@ export async function middleware(request: NextRequest) {
     },
   });
 
-  await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
+  const { pathname } = request.nextUrl;
+  const isAuthRoute = pathname.startsWith("/auth");
+  const isPublic = isAuthRoute || pathname.startsWith("/invite");
+
+  // Gate everything except the auth + public invite-acceptance routes.
+  if (!user && !isPublic) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/auth";
+    url.searchParams.set("next", pathname);
+    return NextResponse.redirect(url);
+  }
+  // Signed-in users have no business on the auth screen.
+  if (user && isAuthRoute) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/throne";
+    url.search = "";
+    return NextResponse.redirect(url);
+  }
+
   return response;
 }
 

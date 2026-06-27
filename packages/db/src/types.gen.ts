@@ -190,6 +190,105 @@ export type Database = {
           },
         ]
       }
+      invitations: {
+        Row: {
+          accepted_at: string | null
+          accepted_by: string | null
+          channel: string
+          company_id: string | null
+          created_at: string
+          email: string | null
+          expires_at: string
+          id: string
+          invited_by: string | null
+          note: string | null
+          opened_at: string | null
+          phone: string | null
+          realm_id: string
+          scope: string
+          status: string
+          title_id: string
+          token: string
+          updated_at: string
+        }
+        Insert: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          channel?: string
+          company_id?: string | null
+          created_at?: string
+          email?: string | null
+          expires_at?: string
+          id?: string
+          invited_by?: string | null
+          note?: string | null
+          opened_at?: string | null
+          phone?: string | null
+          realm_id: string
+          scope?: string
+          status?: string
+          title_id: string
+          token?: string
+          updated_at?: string
+        }
+        Update: {
+          accepted_at?: string | null
+          accepted_by?: string | null
+          channel?: string
+          company_id?: string | null
+          created_at?: string
+          email?: string | null
+          expires_at?: string
+          id?: string
+          invited_by?: string | null
+          note?: string | null
+          opened_at?: string | null
+          phone?: string | null
+          realm_id?: string
+          scope?: string
+          status?: string
+          title_id?: string
+          token?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "invitations_accepted_by_fkey"
+            columns: ["accepted_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_company_id_fkey"
+            columns: ["company_id"]
+            isOneToOne: false
+            referencedRelation: "companies"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_invited_by_fkey"
+            columns: ["invited_by"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_realm_id_fkey"
+            columns: ["realm_id"]
+            isOneToOne: false
+            referencedRelation: "realms"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "invitations_title_id_fkey"
+            columns: ["title_id"]
+            isOneToOne: false
+            referencedRelation: "titles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       memberships: {
         Row: {
           company_id: string | null
@@ -577,6 +676,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
+      rajask_accept_invitation: { Args: { p_token: string }; Returns: string }
       rajask_authority_limit: {
         Args: {
           p_action: string
@@ -603,6 +703,15 @@ export type Database = {
       }
       rajask_is_realm_member: { Args: { p_realm: string }; Returns: boolean }
       rajask_is_sovereign: { Args: { p_realm: string }; Returns: boolean }
+      rajask_open_invitation: {
+        Args: { p_token: string }
+        Returns: {
+          expired: boolean
+          realm_name: string
+          status: string
+          title_name: string
+        }[]
+      }
       rajask_shares_realm: { Args: { p_other: string }; Returns: boolean }
     }
     Enums: {
