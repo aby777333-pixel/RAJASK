@@ -23,3 +23,11 @@ export type AttachmentRow = Tables<"attachments">;
 
 export type NotificationInsert = TablesInsert<"notifications">;
 export type CompanyInsert = TablesInsert<"companies">;
+
+// COURT + COURIER
+export type InvitationRow = Tables<"invitations">;
+export type ConversationRow = Tables<"conversations">;
+export type ConversationMemberRow = Tables<"conversation_members">;
+export type MessageRow = Tables<"messages">;
+export type MessageReactionRow = Tables<"message_reactions">;
+export type MessageInsert = TablesInsert<"messages">;

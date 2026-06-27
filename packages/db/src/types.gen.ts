@@ -64,29 +64,7 @@ export type Database = {
           subsystem?: string | null
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "attachments_company_id_fkey"
-            columns: ["company_id"]
-            isOneToOne: false
-            referencedRelation: "companies"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "attachments_owner_user_id_fkey"
-            columns: ["owner_user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "attachments_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       audit_events: {
         Row: {
@@ -173,22 +151,97 @@ export type Database = {
           realm_id?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "companies_parent_company_id_fkey"
-            columns: ["parent_company_id"]
-            isOneToOne: false
-            referencedRelation: "companies"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "companies_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
+      }
+      conversation_members: {
+        Row: {
+          conversation_id: string
+          created_at: string
+          id: string
+          joined_at: string
+          last_read_at: string | null
+          muted_until: string | null
+          notifications_pref: string
+          pinned: boolean
+          realm_id: string
+          role: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          conversation_id: string
+          created_at?: string
+          id?: string
+          joined_at?: string
+          last_read_at?: string | null
+          muted_until?: string | null
+          notifications_pref?: string
+          pinned?: boolean
+          realm_id: string
+          role?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          joined_at?: string
+          last_read_at?: string | null
+          muted_until?: string | null
+          notifications_pref?: string
+          pinned?: boolean
+          realm_id?: string
+          role?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      conversations: {
+        Row: {
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          id: string
+          is_archived: boolean
+          kind: string
+          last_message_at: string | null
+          name: string | null
+          realm_id: string
+          topic: string | null
+          updated_at: string
+        }
+        Insert: {
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          is_archived?: boolean
+          kind?: string
+          last_message_at?: string | null
+          name?: string | null
+          realm_id: string
+          topic?: string | null
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          is_archived?: boolean
+          kind?: string
+          last_message_at?: string | null
+          name?: string | null
+          realm_id?: string
+          topic?: string | null
+          updated_at?: string
+        }
+        Relationships: []
       }
       invitations: {
         Row: {
@@ -251,43 +304,7 @@ export type Database = {
           token?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "invitations_accepted_by_fkey"
-            columns: ["accepted_by"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invitations_company_id_fkey"
-            columns: ["company_id"]
-            isOneToOne: false
-            referencedRelation: "companies"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invitations_invited_by_fkey"
-            columns: ["invited_by"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invitations_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "invitations_title_id_fkey"
-            columns: ["title_id"]
-            isOneToOne: false
-            referencedRelation: "titles"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       memberships: {
         Row: {
@@ -335,36 +352,76 @@ export type Database = {
           updated_at?: string
           user_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "memberships_company_id_fkey"
-            columns: ["company_id"]
-            isOneToOne: false
-            referencedRelation: "companies"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "memberships_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "memberships_title_id_fkey"
-            columns: ["title_id"]
-            isOneToOne: false
-            referencedRelation: "titles"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "memberships_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
+      }
+      message_reactions: {
+        Row: {
+          created_at: string
+          emoji: string
+          id: string
+          message_id: string
+          realm_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          emoji: string
+          id?: string
+          message_id: string
+          realm_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          emoji?: string
+          id?: string
+          message_id?: string
+          realm_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      messages: {
+        Row: {
+          body: string | null
+          conversation_id: string
+          created_at: string
+          edited_at: string | null
+          id: string
+          kind: string
+          metadata: Json
+          realm_id: string
+          recalled_at: string | null
+          reply_to_id: string | null
+          sender_user_id: string | null
+        }
+        Insert: {
+          body?: string | null
+          conversation_id: string
+          created_at?: string
+          edited_at?: string | null
+          id?: string
+          kind?: string
+          metadata?: Json
+          realm_id: string
+          recalled_at?: string | null
+          reply_to_id?: string | null
+          sender_user_id?: string | null
+        }
+        Update: {
+          body?: string | null
+          conversation_id?: string
+          created_at?: string
+          edited_at?: string | null
+          id?: string
+          kind?: string
+          metadata?: Json
+          realm_id?: string
+          recalled_at?: string | null
+          reply_to_id?: string | null
+          sender_user_id?: string | null
+        }
+        Relationships: []
       }
       notifications: {
         Row: {
@@ -409,22 +466,7 @@ export type Database = {
           subsystem?: string | null
           title?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "notifications_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "notifications_recipient_user_id_fkey"
-            columns: ["recipient_user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       permission_grants: {
         Row: {
@@ -475,29 +517,7 @@ export type Database = {
           subsystem?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "permission_grants_granted_by_fkey"
-            columns: ["granted_by"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "permission_grants_membership_id_fkey"
-            columns: ["membership_id"]
-            isOneToOne: false
-            referencedRelation: "memberships"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "permission_grants_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       realms: {
         Row: {
@@ -533,15 +553,7 @@ export type Database = {
           slug?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "realms_owner_user_id_fkey"
-            columns: ["owner_user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       title_permissions: {
         Row: {
@@ -568,22 +580,7 @@ export type Database = {
           subsystem?: string
           title_id?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "title_permissions_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "title_permissions_title_id_fkey"
-            columns: ["title_id"]
-            isOneToOne: false
-            referencedRelation: "titles"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       titles: {
         Row: {
@@ -619,15 +616,7 @@ export type Database = {
           realm_id?: string
           updated_at?: string
         }
-        Relationships: [
-          {
-            foreignKeyName: "titles_realm_id_fkey"
-            columns: ["realm_id"]
-            isOneToOne: false
-            referencedRelation: "realms"
-            referencedColumns: ["id"]
-          },
-        ]
+        Relationships: []
       }
       users: {
         Row: {
@@ -692,6 +681,10 @@ export type Database = {
         Args: { p_name: string; p_slug: string }
         Returns: string
       }
+      rajask_get_or_create_dm: {
+        Args: { p_other: string; p_realm: string }
+        Returns: string
+      }
       rajask_has_permission: {
         Args: {
           p_action: string
@@ -701,6 +694,7 @@ export type Database = {
         }
         Returns: boolean
       }
+      rajask_in_conversation: { Args: { p_conv: string }; Returns: boolean }
       rajask_is_realm_member: { Args: { p_realm: string }; Returns: boolean }
       rajask_is_sovereign: { Args: { p_realm: string }; Returns: boolean }
       rajask_open_invitation: {

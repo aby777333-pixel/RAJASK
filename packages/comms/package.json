@@ -1,0 +1,27 @@
+{
+  "name": "@rajask/comms",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./whatsapp": "./src/whatsapp.ts",
+    "./livekit": "./src/livekit.ts",
+    "./router": "./src/router.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "lint": "eslint src --ext .ts"
+  },
+  "dependencies": {
+    "@rajask/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@rajask/config": "workspace:*",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

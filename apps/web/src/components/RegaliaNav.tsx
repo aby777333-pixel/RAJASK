@@ -1,5 +1,13 @@
+import Link from "next/link";
 import { SUBSYSTEMS, type Subsystem } from "@rajask/core";
 import { subsystemHex, SUBSYSTEM_LABEL } from "@rajask/ui";
+
+/** Subsystems that have a live route today (the rest are upcoming). */
+const ROUTES: Partial<Record<Subsystem, string>> = {
+  THRONE: "/throne",
+  COURT: "/throne/court",
+  COURIER: "/throne/courier",
+};
 
 /** Order the Regalia roughly by the spec's phase grouping for the rail. */
 const NAV_ORDER: Subsystem[] = [
@@ -32,23 +40,35 @@ export function RegaliaNav() {
     <nav aria-label="Regalia" className="flex flex-col gap-0.5">
       {ORDERED.map((s) => {
         const meta = SUBSYSTEM_LABEL[s];
-        const active = s === "THRONE";
+        const href = ROUTES[s];
+        const dot = (
+          <span
+            className="h-2 w-2 shrink-0 rounded-full"
+            style={{ backgroundColor: subsystemHex(s) }}
+            aria-hidden
+          />
+        );
+        if (href) {
+          return (
+            <Link
+              key={s}
+              href={href}
+              className="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-ivory/75 transition-colors hover:bg-white/5 hover:text-ivory"
+            >
+              {dot}
+              <span className="truncate">{meta.name}</span>
+            </Link>
+          );
+        }
         return (
           <div
             key={s}
-            className={`group flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors ${
-              active ? "bg-white/5 text-ivory" : "text-ivory/55 hover:bg-white/[0.03] hover:text-ivory/90"
-            }`}
+            title="Coming in a later phase"
+            className="group flex items-center gap-3 rounded-lg px-3 py-2 text-sm text-ivory/35"
           >
-            <span
-              className="h-2 w-2 shrink-0 rounded-full"
-              style={{ backgroundColor: subsystemHex(s) }}
-              aria-hidden
-            />
+            {dot}
             <span className="truncate">{meta.name}</span>
-            {active && (
-              <span className="ml-auto h-1.5 w-1.5 rounded-full bg-gold" aria-hidden />
-            )}
+            <span className="ml-auto text-[9px] uppercase tracking-wider text-ivory/20">soon</span>
           </div>
         );
       })}

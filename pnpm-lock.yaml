@@ -26,6 +26,9 @@ importers:
       '@rajask/auth':
         specifier: workspace:*
         version: link:../../packages/auth
+      '@rajask/comms':
+        specifier: workspace:*
+        version: link:../../packages/comms
       '@rajask/core':
         specifier: workspace:*
         version: link:../../packages/core
@@ -84,6 +87,22 @@ importers:
       '@rajask/db':
         specifier: workspace:*
         version: link:../db
+    devDependencies:
+      '@rajask/config':
+        specifier: workspace:*
+        version: link:../config
+      typescript:
+        specifier: ^5.6.3
+        version: 5.9.3
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.9(@types/node@22.20.0)
+
+  packages/comms:
+    dependencies:
+      '@rajask/core':
+        specifier: workspace:*
+        version: link:../core
     devDependencies:
       '@rajask/config':
         specifier: workspace:*
