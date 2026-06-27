@@ -19,6 +19,10 @@ const ROUTES: Partial<Record<Subsystem, string>> = {
   CHRONICLE: "/throne/chronicle",
   CODEX: "/throne/codex",
   TREASURY: "/throne/treasury",
+  REALM: "/throne/realm",
+  CONDUIT: "/throne/conduit",
+  PRIVY: "/throne/privy",
+  WARD: "/throne/ward",
 };
 
 /** Order the Regalia roughly by the spec's phase grouping for the rail. */

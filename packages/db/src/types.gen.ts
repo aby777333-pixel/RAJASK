@@ -1548,6 +1548,213 @@ export type Database = {
         }
         Relationships: []
       }
+      okrs: {
+        Row: {
+          company_id: string | null
+          created_at: string
+          deleted_at: string | null
+          id: string
+          key_result: string | null
+          objective: string
+          owner_user_id: string | null
+          parent_okr_id: string | null
+          period: string | null
+          progress: number
+          realm_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          company_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          key_result?: string | null
+          objective: string
+          owner_user_id?: string | null
+          parent_okr_id?: string | null
+          period?: string | null
+          progress?: number
+          realm_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          id?: string
+          key_result?: string | null
+          objective?: string
+          owner_user_id?: string | null
+          parent_okr_id?: string | null
+          period?: string | null
+          progress?: number
+          realm_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      integration_connectors: {
+        Row: {
+          config: Json
+          created_at: string
+          created_by: string | null
+          health: Json
+          id: string
+          label: string | null
+          last_sync_at: string | null
+          provider: string
+          realm_id: string
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          config?: Json
+          created_at?: string
+          created_by?: string | null
+          health?: Json
+          id?: string
+          label?: string | null
+          last_sync_at?: string | null
+          provider: string
+          realm_id: string
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          config?: Json
+          created_at?: string
+          created_by?: string | null
+          health?: Json
+          id?: string
+          label?: string | null
+          last_sync_at?: string | null
+          provider?: string
+          realm_id?: string
+          status?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      api_keys: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          key_hash: string
+          key_prefix: string
+          last_used_at: string | null
+          name: string
+          realm_id: string
+          revoked_at: string | null
+          scopes: string[]
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          key_hash: string
+          key_prefix: string
+          last_used_at?: string | null
+          name: string
+          realm_id: string
+          revoked_at?: string | null
+          scopes?: string[]
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          key_hash?: string
+          key_prefix?: string
+          last_used_at?: string | null
+          name?: string
+          realm_id?: string
+          revoked_at?: string | null
+          scopes?: string[]
+        }
+        Relationships: []
+      }
+      webhook_endpoints: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          enabled: boolean
+          events: string[]
+          id: string
+          realm_id: string
+          secret: string
+          updated_at: string
+          url: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          enabled?: boolean
+          events?: string[]
+          id?: string
+          realm_id: string
+          secret: string
+          updated_at?: string
+          url: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          enabled?: boolean
+          events?: string[]
+          id?: string
+          realm_id?: string
+          secret?: string
+          updated_at?: string
+          url?: string
+        }
+        Relationships: []
+      }
+      privy_items: {
+        Row: {
+          body: string | null
+          created_at: string
+          deleted_at: string | null
+          due_at: string | null
+          id: string
+          kind: string
+          metadata: Json
+          owner_user_id: string
+          realm_id: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          body?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          due_at?: string | null
+          id?: string
+          kind?: string
+          metadata?: Json
+          owner_user_id: string
+          realm_id: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          body?: string | null
+          created_at?: string
+          deleted_at?: string | null
+          due_at?: string | null
+          id?: string
+          kind?: string
+          metadata?: Json
+          owner_user_id?: string
+          realm_id?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           avatar_url: string | null
