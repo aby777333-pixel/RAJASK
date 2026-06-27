@@ -1,0 +1,14 @@
+# Netlify build config — RAJASK web HQ (apps/web) in a pnpm Turborepo.
+# Git-linked, Linux builds (avoids the Windows backslash Lambda-handler bug).
+
+[build]
+  command = "pnpm --filter @rajask/web build"
+  publish = "apps/web/.next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Corepack activates the pinned pnpm from package.json#packageManager.
+  COREPACK_ENABLE_DOWNLOAD_PROMPT = "0"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

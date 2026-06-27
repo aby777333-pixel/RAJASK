@@ -1,0 +1,42 @@
+/* RAJASK regal theme — obsidian base, ivory parchment, spectrum accents. */
+
+:root {
+  --rajask-obsidian: #0b0b0f;
+  --rajask-obsidian-100: #15151b;
+  --rajask-obsidian-50: #1a1a22;
+  --rajask-ivory: #f7f5ef;
+  --rajask-ivory-muted: #e7e3d8;
+  --rajask-gold: #fdb913;
+
+  /* default to the throne (dark) theme */
+  --rajask-bg: var(--rajask-obsidian);
+  --rajask-surface: var(--rajask-obsidian-100);
+  --rajask-surface-raised: var(--rajask-obsidian-50);
+  --rajask-text: var(--rajask-ivory);
+  --rajask-text-muted: #a6a294;
+  --rajask-border: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="light"] {
+  --rajask-bg: var(--rajask-ivory);
+  --rajask-surface: #ffffff;
+  --rajask-surface-raised: #ffffff;
+  --rajask-text: #15151b;
+  --rajask-text-muted: #6b6960;
+  --rajask-border: rgba(0, 0, 0, 0.1);
+}
+
+.rajask-spectrum-bar {
+  background: linear-gradient(
+    90deg,
+    #92278f,
+    #ec008c,
+    #e2231a,
+    #f58220,
+    #fdb913,
+    #8dc63f,
+    #009444,
+    #0093d0,
+    #005daa
+  );
+}

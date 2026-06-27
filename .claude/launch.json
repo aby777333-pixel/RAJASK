@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "rajask-web",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["-C", "C:\\Users\\GIO4X\\Documents\\RAJASK", "--filter", "@rajask/web", "dev"],
+      "port": 3000
+    }
+  ]
+}

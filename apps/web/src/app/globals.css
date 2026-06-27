@@ -1,0 +1,22 @@
+@import "@rajask/ui/theme.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  background-color: var(--rajask-bg);
+  color: var(--rajask-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(253, 185, 19, 0.25);
+}
+
+/* thin regal scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.15) transparent;
+}
