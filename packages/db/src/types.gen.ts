@@ -1188,6 +1188,366 @@ export type Database = {
         }
         Relationships: []
       }
+      reports: {
+        Row: {
+          company_id: string | null
+          content: Json
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          format: string
+          generated_at: string | null
+          id: string
+          kind: string
+          realm_id: string
+          schedule: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          company_id?: string | null
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          format?: string
+          generated_at?: string | null
+          id?: string
+          kind?: string
+          realm_id: string
+          schedule?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          company_id?: string | null
+          content?: Json
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          format?: string
+          generated_at?: string | null
+          id?: string
+          kind?: string
+          realm_id?: string
+          schedule?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      pulse_surveys: {
+        Row: {
+          active: boolean
+          created_at: string
+          created_by: string | null
+          id: string
+          kind: string
+          question: string
+          realm_id: string
+          updated_at: string
+        }
+        Insert: {
+          active?: boolean
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          kind?: string
+          question: string
+          realm_id: string
+          updated_at?: string
+        }
+        Update: {
+          active?: boolean
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          kind?: string
+          question?: string
+          realm_id?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      pulse_responses: {
+        Row: {
+          comment: string | null
+          created_at: string
+          id: string
+          realm_id: string
+          score: number
+          survey_id: string
+          user_id: string
+        }
+        Insert: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          realm_id: string
+          score: number
+          survey_id: string
+          user_id: string
+        }
+        Update: {
+          comment?: string | null
+          created_at?: string
+          id?: string
+          realm_id?: string
+          score?: number
+          survey_id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      decisions: {
+        Row: {
+          alternatives: string | null
+          actual_outcome: string | null
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          decided_at: string | null
+          deleted_at: string | null
+          expected_outcome: string | null
+          id: string
+          owner_user_id: string | null
+          realm_id: string
+          reasoning: string | null
+          reviewed_at: string | null
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          alternatives?: string | null
+          actual_outcome?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          decided_at?: string | null
+          deleted_at?: string | null
+          expected_outcome?: string | null
+          id?: string
+          owner_user_id?: string | null
+          realm_id: string
+          reasoning?: string | null
+          reviewed_at?: string | null
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          alternatives?: string | null
+          actual_outcome?: string | null
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          decided_at?: string | null
+          deleted_at?: string | null
+          expected_outcome?: string | null
+          id?: string
+          owner_user_id?: string | null
+          realm_id?: string
+          reasoning?: string | null
+          reviewed_at?: string | null
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      risks: {
+        Row: {
+          category: string
+          company_id: string | null
+          created_at: string
+          created_by: string | null
+          deleted_at: string | null
+          id: string
+          impact: number
+          likelihood: number
+          mitigation: string | null
+          owner_user_id: string | null
+          realm_id: string
+          status: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          category?: string
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          impact?: number
+          likelihood?: number
+          mitigation?: string | null
+          owner_user_id?: string | null
+          realm_id: string
+          status?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          category?: string
+          company_id?: string | null
+          created_at?: string
+          created_by?: string | null
+          deleted_at?: string | null
+          id?: string
+          impact?: number
+          likelihood?: number
+          mitigation?: string | null
+          owner_user_id?: string | null
+          realm_id?: string
+          status?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      treasury_snapshots: {
+        Row: {
+          as_of: string
+          cash: number | string | null
+          company_id: string | null
+          created_at: string
+          currency: string
+          expenses: number | string | null
+          id: string
+          realm_id: string
+          revenue: number | string | null
+          source: string | null
+        }
+        Insert: {
+          as_of?: string
+          cash?: number | string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string
+          expenses?: number | string | null
+          id?: string
+          realm_id: string
+          revenue?: number | string | null
+          source?: string | null
+        }
+        Update: {
+          as_of?: string
+          cash?: number | string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string
+          expenses?: number | string | null
+          id?: string
+          realm_id?: string
+          revenue?: number | string | null
+          source?: string | null
+        }
+        Relationships: []
+      }
+      expenses: {
+        Row: {
+          amount: number | string
+          category: string | null
+          company_id: string | null
+          created_at: string
+          currency: string
+          description: string | null
+          id: string
+          realm_id: string
+          status: string
+          submitted_by: string | null
+          updated_at: string
+        }
+        Insert: {
+          amount: number | string
+          category?: string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string
+          description?: string | null
+          id?: string
+          realm_id: string
+          status?: string
+          submitted_by?: string | null
+          updated_at?: string
+        }
+        Update: {
+          amount?: number | string
+          category?: string | null
+          company_id?: string | null
+          created_at?: string
+          currency?: string
+          description?: string | null
+          id?: string
+          realm_id?: string
+          status?: string
+          submitted_by?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      vizier_conversations: {
+        Row: {
+          created_at: string
+          id: string
+          realm_id: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          realm_id: string
+          title?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          realm_id?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
+      vizier_messages: {
+        Row: {
+          content: string
+          conversation_id: string
+          created_at: string
+          id: string
+          realm_id: string
+          role: string
+          user_id: string
+        }
+        Insert: {
+          content: string
+          conversation_id: string
+          created_at?: string
+          id?: string
+          realm_id: string
+          role: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          conversation_id?: string
+          created_at?: string
+          id?: string
+          realm_id?: string
+          role?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       users: {
         Row: {
           avatar_url: string | null
